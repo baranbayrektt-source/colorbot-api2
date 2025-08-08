@@ -21,6 +21,5 @@ Bu proje Vercel'de deploy edilmek üzere tasarlanmıştır.
 - `API_KEY`: QUARX_API_SECRET_2024
 
 ## 📊 Database
-# Test Update
 
 SQLite veritabanı kullanılıyor. Vercel'de `/tmp/` klasöründe geçici olarak saklanıyor.
