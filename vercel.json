@@ -10,15 +10,7 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/index.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.py"
     }
-  ],
-  "env": {
-    "FLASK_ENV": "production",
-    "API_KEY": "QUARX_API_SECRET_2024"
-  }
+  ]
 }
 
