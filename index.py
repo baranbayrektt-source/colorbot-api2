@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ColorBot API Server for Vercel
+ColorBot API Server for Vercel Functions
 """
 
 from flask import Flask, request, jsonify
@@ -110,6 +110,15 @@ class ColorBotAPI:
 
 # Global API instance
 api = ColorBotAPI()
+
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - test için"""
+    return jsonify({
+        'message': 'ColorBot API is running!',
+        'status': 'active',
+        'timestamp': datetime.now().isoformat()
+    })
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -302,5 +311,11 @@ def get_license_status():
         logging.error(f"Lisans durumu hatası: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
-# Vercel için app'i export et
-app.debug = False
+# Vercel Functions için handler
+def handler(request, context):
+    """Vercel Functions handler"""
+    return app(request, context)
+
+# Flask app'i export et
+if __name__ == '__main__':
+    app.run(debug=False)
